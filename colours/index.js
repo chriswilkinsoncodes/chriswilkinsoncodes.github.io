@@ -10,7 +10,7 @@ function changeBG(panel) {
     const randomColor = Math.floor(Math.random() * 16777215);
     let panelBG = randomColor.toString(16);
     while (panelBG.length < 6) {
-      panelBG += '0';
+      panelBG = '0' + panelBG;
     }
     panel.style.backgroundColor = `#${panelBG}`;
 
