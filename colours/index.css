@@ -1,7 +1,21 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 button {
   cursor: pointer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+
+.panel {
+  border: 1px solid blue;
 }
