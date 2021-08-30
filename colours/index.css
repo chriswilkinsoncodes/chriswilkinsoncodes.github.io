@@ -8,6 +8,13 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+}
+
 button {
   cursor: pointer;
 }
@@ -17,12 +24,8 @@ button {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
 }
-
-/* .panel {
-  border: 1px solid blue;
-} */
 
 .color-code {
   text-align: center;
