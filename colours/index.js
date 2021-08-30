@@ -7,15 +7,14 @@ function changeBG(panel) {
   const panelSet = document.querySelectorAll('.panel');
   panelSet.forEach((panel) => {
     const colorCode = panel.querySelector('.color-code');
-    const randomColor = Math.floor(Math.random() * 16777215);
-    let panelBG = randomColor.toString(16);
-    while (panelBG.length < 6) {
-      panelBG = '0' + panelBG;
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    while (randomColor.length < 6) {
+      randomColor = '0' + randomColor;
     }
-    panel.style.backgroundColor = `#${panelBG}`;
+    panel.style.backgroundColor = `#${randomColor}`;
 
     colorCode.style.border = '1px solid';
-    colorCode.textContent = `#${randomColor.toString(16)}`;
+    colorCode.textContent = `#${randomColor}`;
     panel;
   });
 }
