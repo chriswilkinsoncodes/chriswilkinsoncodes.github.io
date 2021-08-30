@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 button {
   cursor: pointer;
 }
@@ -16,6 +20,18 @@ button {
   height: 100vh;
 }
 
-.panel {
+/* .panel {
   border: 1px solid blue;
+} */
+
+.color-code {
+  text-align: center;
+  text-transform: uppercase;
+  width: 20%;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  margin: 25% auto 0;
+  /* transform: translateY(-50%); */
+  padding: 1rem 1.5rem;
 }
