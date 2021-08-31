@@ -17,14 +17,39 @@ header {
 
 button {
   cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+button:hover {
+  background-color: aliceblue;
 }
 
 .container {
   display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   width: 100vw;
   height: 90vh;
+}
+
+.cols-1 {
+  grid-template-columns: auto;
+}
+
+.cols-4 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.cols-8 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#num-colors {
+  display: flex;
+}
+
+input[type='radio'] {
+  margin: 0 0.2rem 0 1rem;
 }
 
 .panel {

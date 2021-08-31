@@ -1,9 +1,33 @@
 // from https://css-tricks.com/snippets/javascript/random-hex-color/
 // randomColor assignment
 
+const container = document.querySelector('.container');
 const body = document.querySelector('body');
 
+function setPanels() {
+  container.innerHTML = '';
+  container.classList = 'container';
+  const numColors = document.querySelector(
+    'input[name="num-colors"]:checked'
+  ).value;
+  if (numColors === '1') {
+    container.classList.add('cols-1');
+  } else if (numColors === '2' || numColors === '4') {
+    container.classList.add('cols-4');
+  } else {
+    container.classList.add('cols-8');
+  }
+  for (let i = 0; i < numColors; i++) {
+    container.innerHTML += `
+        <div class="panel">
+        <div class="color-code"></div>
+      </div>
+        `;
+  }
+}
+
 function changeBG(panel) {
+  setPanels();
   const panelSet = document.querySelectorAll('.panel');
   panelSet.forEach((panel) => {
     const colorCode = panel.querySelector('.color-code');
@@ -31,3 +55,5 @@ function changeBG(panel) {
 //   colorCode.style.color = '#fff';
 // }
 // colorCode.style.backgroundColor = `#${colorCodeBGColor.toString(16)}`;
+
+// remember to run with console open to see if there are any otherwise unnoticable errors
