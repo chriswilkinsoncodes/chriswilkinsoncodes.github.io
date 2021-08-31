@@ -15,38 +15,24 @@
   </head>
   <body>
     <header>
-      <div>
-        <form autocomplete="off" id="num-colors">
-          <p>Colors:</p>
-          <div>
-            <input type="radio" id="1-color" name="num-colors" value="1" />
-            <label for="1-color">1</label>
-          </div>
-          <div>
-            <input type="radio" id="2-colors" name="num-colors" value="2" />
-            <label for="2-colors">2</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="4-colors"
-              name="num-colors"
-              value="4"
-              checked
-            />
-            <label for="4-colors">4</label>
-          </div>
-          <div>
-            <input type="radio" id="8-colors" name="num-colors" value="8" />
-            <label for="8-colors">8</label>
-          </div>
-          <div>
-            <input type="radio" id="16-colors" name="num-colors" value="16" />
-            <label for="16-colors">16</label>
-          </div>
-        </form>
-      </div>
-      <div><button onclick="changeBG()">Give me color!</button></div>
+      <form autocomplete="off" id="num-colors">
+        Colors:
+        <input type="radio" id="color-1" name="num-colors" value="1" />
+        <label for="1-color">1</label>
+        <input type="radio" id="colors-2" name="num-colors" value="2" />
+        <label for="2-colors">2</label>
+        <input type="radio" id="colors-4" name="num-colors" value="4" checked />
+        <label for="4-colors">4</label>
+        <div class="wide-option">
+          <input type="radio" id="colors-8" name="num-colors" value="8" />
+          <label for="8-colors">8</label>
+        </div>
+        <div class="wide-option">
+          <input type="radio" id="colors-16" name="num-colors" value="16" />
+          <label for="16-colors">16</label>
+        </div>
+      </form>
+      <button onclick="changeBG()">Give me color!</button>
     </header>
     <div class="container"></div>
     <script src="index.js"></script>

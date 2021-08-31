@@ -2,6 +2,7 @@
 // randomColor assignment
 
 const container = document.querySelector('.container');
+const header = document.querySelector('header');
 const body = document.querySelector('body');
 
 function setPanels() {
@@ -10,19 +11,21 @@ function setPanels() {
   const numColors = document.querySelector(
     'input[name="num-colors"]:checked'
   ).value;
+  if (numColors === '2') {
+    container.classList.add('rows-2');
+  }
   if (numColors === '1') {
     container.classList.add('cols-1');
   } else if (numColors === '2' || numColors === '4') {
-    container.classList.add('cols-4');
+    container.classList.add('cols-2');
   } else {
-    container.classList.add('cols-8');
+    container.classList.add('cols-4');
   }
   for (let i = 0; i < numColors; i++) {
     container.innerHTML += `
         <div class="panel">
-        <div class="color-code"></div>
-      </div>
-        `;
+            <div class="color-code"></div>
+        </div>`;
   }
 }
 
