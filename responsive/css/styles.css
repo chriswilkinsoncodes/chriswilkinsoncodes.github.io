@@ -123,6 +123,17 @@ aside {
   width: 24%;
 }
 
+@media (max-width: 800px) {
+  .container-main {
+    display: block;
+  }
+
+  main,
+  aside {
+    width: 100%;
+  }
+}
+
 img {
   width: 100%;
 }
