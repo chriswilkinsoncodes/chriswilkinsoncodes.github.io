@@ -230,6 +230,8 @@ main a:focus {
 
 .article-recent-secondary {
   width: 28%;
+  min-width: 12.125rem;
+  margin-right: 2rem;
 }
 
 .article-image-secondary {
