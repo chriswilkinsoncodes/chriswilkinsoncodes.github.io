@@ -43,6 +43,24 @@ header {
   margin-bottom: 2rem;
 }
 
+footer {
+  background-color: #143774;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+footer p {
+  margin: 0;
+}
+
 .subtitle {
   font-size: 0.75rem;
   font-weight: 700;
