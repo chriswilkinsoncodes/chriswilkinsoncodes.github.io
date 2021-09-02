@@ -2,7 +2,8 @@
 - Frontend Developer Career Path
 - Responsive Design
 - Starting to think responsively
-- Creating a navigation
+- beginning at Creating a navigation (20) until Wrapping up some loose ends (43)
+- by @KevinJPowell
 
  - original course code with modifications by @chriswcodes */
 
@@ -12,18 +13,97 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
   margin: 0;
 }
 
-h1 {
+/*************************
+        Typography
+*************************/
+
+h1,
+.article-title,
+.widget-recent-post-title {
   font-family: 'Lora', sans-serif;
-  /* font-size: 3.375rem; */
-  font-size: 2rem;
   font-weight: 400;
   color: #143774;
-  letter-spacing: 0.1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  /* letter-spacing: 0.1rem; */
   margin-bottom: 0;
 }
+
+a {
+  color: #1792d2;
+}
+
+a:hover,
+a:focus {
+  color: #143774;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1792d2;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+}
+
+footer p {
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+}
+
+.article-body,
+.article-info {
+  color: #707070;
+}
+
+.article-read-more,
+.article-info {
+  font-size: 0.875rem;
+}
+
+.article-read-more {
+  font-weight: 700;
+  color: #1792d2;
+  text-transform: uppercase;
+  letter-spacing: 2.8px;
+  text-decoration: none;
+}
+
+.article-read-more:hover,
+.article-read-more:focus {
+  color: #143774;
+  text-decoration: underline;
+}
+
+.widget-title,
+.widget-body {
+  color: #143774;
+}
+
+.widget-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.225rem;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+/*************************
+          Layout
+*************************/
 
 .container {
   width: 90%;
@@ -45,30 +125,11 @@ header {
 
 footer {
   background-color: #143774;
-  color: #ffffff;
-  font-size: 1.125rem;
-  font-weight: 300;
-  text-align: center;
   margin-top: 2rem;
   padding: 2rem;
 }
 
-.bold {
-  font-weight: 700;
-}
-
-footer p {
-  margin: 0;
-}
-
-.subtitle {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #1792d2;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  margin-bottom: 2rem;
-}
+/****** Navigation *******/
 
 nav ul {
   display: flex;
@@ -135,6 +196,7 @@ nav a:focus {
 
 main {
   width: 71%;
+  margin-bottom: 2rem;
 }
 
 aside {
@@ -178,45 +240,6 @@ img {
   order: -1;
 }
 
-.article-title {
-  font-family: 'Lora', sans-serif;
-  font-size: 1.5rem;
-  color: #143774;
-}
-
-.article-body {
-  font-size: 1.125rem;
-  font-weight: 300;
-  color: #707070;
-}
-
-.article-body-accent {
-  font-weight: 700;
-}
-
-main a {
-  color: #1792d2;
-}
-
-main a:hover,
-main a:focus {
-  color: #143774;
-}
-
-.article-read-more {
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2.8px;
-  text-decoration: none;
-}
-
-.article-info {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 0.875rem;
-  color: #707070;
-}
-
 .article-recent {
   display: flex;
   flex-direction: row-reverse;
@@ -255,14 +278,6 @@ main a:focus {
   padding: 1.25rem;
 }
 
-.widget-title {
-  font-size: 1.125rem;
-  letter-spacing: 0.225rem;
-  color: #143774;
-  margin-top: 0;
-  text-transform: uppercase;
-}
-
 .widget-recent-post {
   display: flex;
   flex-direction: column-reverse;
@@ -275,15 +290,4 @@ main a:focus {
   margin-bottom: 0;
   padding-bottom: 0;
   border: none;
-}
-
-.widget-recent-post-title {
-  font-family: 'Lora', sans-serif;
-  font-weight: 400;
-  color: #143774;
-}
-
-.widget-body {
-  font-weight: 300;
-  color: #143774;
 }
