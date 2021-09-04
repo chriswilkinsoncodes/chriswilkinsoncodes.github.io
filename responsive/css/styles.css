@@ -58,6 +58,10 @@ strong {
   font-weight: 700;
 }
 
+.light-title {
+  color: #1792d2;
+}
+
 .logo-subtitle {
   font-size: 0.75rem;
   font-weight: 700;
@@ -217,10 +221,10 @@ nav a:focus {
 /******* Articles ********/
 
 .hero-image {
-  height: 308px;
+  max-height: 308px;
   width: 100%;
   object-fit: cover;
-  object-position: bottom;
+  /* object-position: bottom; */
   margin-bottom: 1rem;
 }
 
