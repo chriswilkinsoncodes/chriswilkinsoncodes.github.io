@@ -11,11 +11,20 @@
   box-sizing: border-box;
 }
 
+/*************************
+          General
+*************************/
+
 body {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.125rem;
   font-weight: 300;
   margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
 }
 
 /*************************
@@ -75,11 +84,13 @@ footer p {
 }
 
 .article-read-more {
+  display: inline-block;
   font-weight: 700;
   color: #1792d2;
   text-transform: uppercase;
   letter-spacing: 2.8px;
   text-decoration: none;
+  margin-bottom: 2rem;
 }
 
 .article-read-more:hover,
@@ -101,6 +112,11 @@ footer p {
   margin-top: 0;
 }
 
+.footer-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
 /*************************
           Layout
 *************************/
@@ -111,9 +127,10 @@ footer p {
   margin: 0 auto;
 }
 
-.container-nav {
+.container-flex {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 header {
@@ -143,7 +160,7 @@ nav ul {
 }
 
 nav li {
-  margin: 1rem 1rem;
+  margin: 1rem 0;
 }
 
 nav a {
@@ -169,54 +186,35 @@ nav a:focus {
   color: #707070;
 }
 
-@media (min-width: 900px) {
-  .container-nav {
+@media (min-width: 830px) {
+  .container-flex {
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  }
+
+  main {
+    width: 71%;
+    margin-bottom: 2rem;
+  }
+
+  aside {
+    width: 24%;
+    min-width: 200px;
   }
 
   nav ul {
     flex-direction: row;
   }
 
+  nav li {
+    margin: 0 1rem;
+  }
+
   nav li:last-child {
     margin-right: 0;
   }
-  /* don't be specific about putting margin only on the 2nd item of 3 in case add'l items are added later
-  add margin to all elements
-  could change margin for 1st & last if margin on ultimate left & right is not wanted
-  or could just put margin on the left if the nav will be on the right side of the screen */
 }
 
-.container-main {
-  display: flex;
-  justify-content: space-between;
-}
-
-main {
-  width: 71%;
-  margin-bottom: 2rem;
-}
-
-aside {
-  width: 24%;
-}
-
-@media (max-width: 800px) {
-  .container-main {
-    display: block;
-  }
-
-  main,
-  aside {
-    width: 100%;
-  }
-}
-
-img {
-  width: 100%;
-}
+/******* Articles ********/
 
 .hero-image {
   height: 308px;
@@ -229,18 +227,19 @@ img {
 .article-featured {
   display: flex;
   flex-direction: column;
-  padding-bottom: 2rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid #707070;
 }
 
-.article-featured :nth-child(1) {
-  order: -1;
+.article-image {
+  order: -2;
 }
-.article-featured :nth-child(3) {
+
+.article-info {
   order: -1;
 }
 
-.article-recent {
+/* .article-recent {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -262,11 +261,7 @@ img {
   width: 100%;
   object-fit: cover;
   object-position: bottom;
-}
-
-.bottom-left {
-  object-position: bottom left;
-}
+} */
 
 .article-recent .article-title {
   margin-top: 0;
@@ -290,4 +285,34 @@ img {
   margin-bottom: 0;
   padding-bottom: 0;
   border: none;
+}
+
+@media (min-width: 830px) {
+  .article-recent {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-top: 2rem;
+  }
+
+  .article-recent-main {
+    width: 68%;
+  }
+
+  .article-recent-secondary {
+    width: 28%;
+    min-width: 12.125rem;
+    margin-right: 2rem;
+  }
+
+  .article-image-secondary {
+    min-height: 15.125rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  .bottom-left {
+    object-position: bottom left;
+  }
 }
