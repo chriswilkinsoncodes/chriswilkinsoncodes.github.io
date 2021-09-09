@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
@@ -29,10 +29,22 @@
           is to learn from the best. You can do just that by signing up for this
           free webinar!
         </p>
-        <form action="" id="register">
-          <input type="text" id="first-name" placeholder="first name" />
-          <input type="text" id="email" placeholder="email" />
-          <button class="btn register-btn">Register</button>
+        <form action="#" method="POST" id="register">
+          <input
+            aria-label="first name"
+            type="text"
+            id="first-name"
+            placeholder="first name"
+            required
+          />
+          <input
+            aria-label="email"
+            type="email"
+            id="email"
+            placeholder="email"
+            required
+          />
+          <button type="submit" class="btn register-btn">Register</button>
         </form>
         <div class="register-disclaimer">
           <small>
