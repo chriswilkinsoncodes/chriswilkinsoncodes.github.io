@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <meta http-equiv="content-type" content="text/html; charset=utf-8" /> -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +21,7 @@
         <h1>Learn how to make <strong>the best BBQ ribs </strong>in town</h1>
         <p class="subtitle"><strong>Join us for this live webinar</strong></p>
       </main>
-      <aside>
+      <aside id="Main-Content">
         <h2>Become a BBQ master!</h2>
         <p class="register-subtitle"><strong>Register today</strong></p>
         <p class="register-text">
@@ -29,18 +30,18 @@
           is to learn from the best. You can do just that by signing up for this
           free webinar!
         </p>
-        <form action="#" method="POST" id="register">
+        <form action="" method="" id="email-collector">
           <input
             aria-label="first name"
             type="text"
-            id="first-name"
+            name="first-name"
             placeholder="first name"
             required
           />
           <input
             aria-label="email"
             type="email"
-            id="email"
+            name="email"
             placeholder="email"
             required
           />
@@ -54,5 +55,6 @@
         </div>
       </aside>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

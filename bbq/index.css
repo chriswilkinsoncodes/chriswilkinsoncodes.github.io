@@ -41,7 +41,7 @@ aside {
   flex-direction: column;
 }
 
-#register {
+#email-collector {
   display: flex;
   flex-direction: column;
 }
@@ -101,7 +101,7 @@ input {
   margin-bottom: 0.75em;
 }
 
-#register {
+#email-collector {
   width: 80%;
   margin-bottom: 1rem;
 }
