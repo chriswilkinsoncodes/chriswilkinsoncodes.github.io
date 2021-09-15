@@ -24,7 +24,8 @@ body {
 
 .pac-dot {
   background-color: green;
-  border: 5px solid white;
+  border: 6px solid white;
+  border-radius: 50%;
   /* box-sizing: border-box; */
 }
 
@@ -32,24 +33,32 @@ body {
   background-color: blue;
 }
 
-.wall-top-left {
-  background-color: blue;
-  border-top-left-radius: 5px;
+.top-left {
+  border-radius: 100% 0 0 0;
 }
 
 .top-right {
-  border-top-right-radius: 5px;
+  border-radius: 0 100% 0 0;
+}
+
+.bottom-left {
+  border-radius: 0 0 0 100% ;
+}
+
+.bottom-right {
+  border-radius: 0 0 100% 0;
 }
 
 .power-pellet {
   background-color: green;
-  border-radius: 7.5px;
+  border: 3.5px solid white;
+  border-radius: 50%;
 }
 
 .pacman {
   background-color: orange;
-  border-radius: 7.5px;
-  border: none;
+  border: 1px solid white;
+  border-radius: 50%;
 }
 
 .blinky {
@@ -63,7 +72,7 @@ body {
 }
 
 .inky {
-  background-color: blue;
+  background-color: cyan;
   border: none;
 }
 

@@ -1,4 +1,7 @@
 const width = 28;
+const leftExit = 364
+const rightExit = 391
+const startPosition =490
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.getElementById('score');
 let squares = [];
@@ -17,12 +20,12 @@ let score = 0;
 const layout = [
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,5,1,1,6,0,5,1,1,1,1,0,1,1,0,5,1,1,1,1,0,5,1,1,1,0,1,
+    1,0,5,1,1,6,0,5,1,1,1,6,0,1,1,0,5,1,1,1,6,0,5,1,1,6,0,1,
     1,3,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,3,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
+    1,0,7,1,1,8,0,7,1,1,1,8,0,7,8,0,7,1,1,1,8,0,7,1,1,8,0,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,1,
+    1,0,5,1,1,6,0,5,1,1,1,1,1,1,1,1,1,1,1,1,6,0,5,1,1,6,0,1,
+    1,0,7,1,1,8,0,7,1,1,1,1,1,1,1,1,1,1,1,1,8,0,7,1,1,8,0,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
@@ -30,7 +33,7 @@ const layout = [
     1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
     4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
     1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
+    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
     1,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,1,
     1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
@@ -65,30 +68,31 @@ function createBoard() {
     } else if (layout[i] === 3) {
       squares[i].classList.add('power-pellet');
     } else if (layout[i] === 5) {
-      squares[i].classList.add('wall-top-left');
+      squares[i].classList.add('wall');
+      squares[i].classList.add('top-left');
     } else if (layout[i] === 6) {
       squares[i].classList.add('wall');
       squares[i].classList.add('top-right');
+    } else if (layout[i] === 7) {
+      squares[i].classList.add('wall');
+      squares[i].classList.add('bottom-left');
+    } else if (layout[i] === 8) {
+      squares[i].classList.add('wall');
+      squares[i].classList.add('bottom-right');
     }
   }
 }
 createBoard();
 
-// down - 40
-// up key - 38
-// left - 37
-// right - 39
-
 //starting position of pacman
-let pacmanCurrentIndex = 490;
+let pacmanCurrentIndex = startPosition;
 squares[pacmanCurrentIndex].classList.add('pacman');
 
 function control(e) {
   const classNames = ['wall', 'ghost-lair'];
   squares[pacmanCurrentIndex].classList.remove('pacman');
-  switch (e.keyCode) {
-    case 40:
-      //   console.log('pressed down');
+  switch (e.key) {
+    case 'ArrowDown':
       if (
         // check for one of multiple classes
         // solution found:
@@ -101,8 +105,7 @@ function control(e) {
         pacmanCurrentIndex += width;
       pacDotEaten();
       break;
-    case 38:
-      //   console.log('pressed up');
+    case 'ArrowUp':
       if (
         !squares[pacmanCurrentIndex - width].classList.contains('wall') &&
         pacmanCurrentIndex - width >= 0
@@ -110,10 +113,9 @@ function control(e) {
         pacmanCurrentIndex -= width;
       pacDotEaten();
       break;
-    case 37:
-      //   console.log('pressed left');
-      if (pacmanCurrentIndex === 364) {
-        pacmanCurrentIndex = 391;
+    case 'ArrowLeft':
+      if (pacmanCurrentIndex === leftExit) {
+        pacmanCurrentIndex = rightExit;
         break;
       }
       if (
@@ -123,10 +125,9 @@ function control(e) {
         pacmanCurrentIndex -= 1;
       pacDotEaten();
       break;
-    case 39:
-      //   console.log('pressed right');
-      if (pacmanCurrentIndex === 391) {
-        pacmanCurrentIndex = 364;
+    case 'ArrowRight':
+      if (pacmanCurrentIndex === rightExit) {
+        pacmanCurrentIndex = leftExit;
         break;
       }
       if (
@@ -139,12 +140,11 @@ function control(e) {
   }
   squares[pacmanCurrentIndex].classList.add('pacman');
 }
-document.addEventListener('keyup', control);
+document.addEventListener('keydown', control);
 
 function pacDotEaten() {
   if (squares[pacmanCurrentIndex].classList.contains('pac-dot')) {
     score++;
-    //code
     squares[pacmanCurrentIndex].classList.remove('pac-dot');
     scoreDisplay.textContent = score;
   }
