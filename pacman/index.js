@@ -27,23 +27,23 @@ const layout = [
     1,0,5,1,1,6,0,5,1,1,1,1,1,1,1,1,1,1,1,1,6,0,5,1,1,6,0,1,
     1,0,7,1,1,8,0,7,1,1,1,1,1,1,1,1,1,1,1,1,8,0,7,1,1,8,0,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-    1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,
+    1,1,1,1,1,6,0,5,1,1,1,6,0,7,8,0,5,1,1,1,6,0,5,1,1,1,1,1,
+    1,1,1,1,1,1,0,1,1,1,1,8,0,4,4,0,7,1,1,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,1,2,2,1,1,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
+    1,1,1,1,1,8,0,7,8,4,1,1,1,2,2,1,1,1,4,7,8,0,7,1,1,1,1,1,
     4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
+    1,1,1,1,1,6,0,5,6,4,1,2,2,2,2,2,2,1,4,5,6,0,5,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
+    1,1,1,1,1,8,0,7,8,4,1,1,1,1,1,1,1,1,4,7,8,0,7,1,1,1,1,1,
     1,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
-    1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1,
+    1,0,5,1,1,6,0,5,1,1,1,6,0,5,6,0,5,1,1,1,6,0,5,1,1,6,0,1,
+    1,0,7,1,1,1,0,7,1,1,1,8,0,7,8,0,7,1,1,1,8,0,1,1,1,8,0,1,
     1,3,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,3,1,
-    1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,
-    1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,1,1,0,1,1,1,
+    1,1,6,0,1,1,0,5,6,0,5,1,1,1,1,1,1,6,0,5,6,0,1,1,0,5,1,1,
+    1,1,8,0,7,8,0,1,1,0,7,1,1,1,1,1,1,8,0,1,1,0,7,8,0,7,1,1,
     1,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1,
-    1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,
-    1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,
+    1,0,5,1,1,1,1,1,1,1,1,6,0,1,1,0,5,1,1,1,1,1,1,1,1,6,0,1,
+    1,0,7,1,1,1,1,1,1,1,1,8,0,7,8,0,7,1,1,1,1,1,1,1,1,8,0,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 ];
@@ -74,11 +74,9 @@ function createBoard() {
       squares[i].classList.add('wall');
       squares[i].classList.add('top-right');
     } else if (layout[i] === 7) {
-      squares[i].classList.add('wall');
-      squares[i].classList.add('bottom-left');
+      squares[i].classList.add('wall', 'bottom-left');
     } else if (layout[i] === 8) {
-      squares[i].classList.add('wall');
-      squares[i].classList.add('bottom-right');
+      squares[i].classList.add('wall', 'bottom-right');
     }
   }
 }
@@ -155,17 +153,42 @@ class Ghost {
     this.className = className;
     this.startIndex = startIndex;
     this.speed = speed;
+    this.currentIndex = startIndex
+    this.isScared = false
+    this.timerId = NaN
   }
 }
 
 const ghosts = [
-  new Ghost('blinky', 348, 250),
-  new Ghost('pinky', 376, 400),
-  new Ghost('inky', 351, 300),
-  new Ghost('clyde', 379, 500),
+  new Ghost('blinky', 376, 250),
+  new Ghost('pinky', 404, 400),
+  new Ghost('inky', 379, 300),
+  new Ghost('clyde', 407, 500),
 ];
 
 //draw my ghosts onto my grid
 ghosts.forEach((ghost) =>
   squares[ghost.startIndex].classList.add(ghost.className)
 );
+
+//move the ghosts
+ghosts.forEach(ghost => moveGhost(ghost))
+
+function moveGhost(ghost) {
+  console.log(ghost.className)
+  const directions = [-1, +1, -width, +width]
+  let direction = directions[Math.floor(Math.random() * directions.length)]
+  console.log(direction)
+
+  ghost.timerId = setInterval(function() {
+    //all our code
+    //remove any ghost
+    squares[ghost.currentIndex].classList.remove(ghost.className)
+    //add direction to current Index
+    ghost.currentIndex += direction
+    //add ghost class
+    squares[ghost.currentIndex].classList.add(ghost.className)
+}, ghost.speed )
+clearInterval(ghost.timerId)
+}
+
