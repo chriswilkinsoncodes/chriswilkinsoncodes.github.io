@@ -42,7 +42,7 @@ body {
 }
 
 .bottom-left {
-  border-radius: 0 0 0 100% ;
+  border-radius: 0 0 0 100%;
 }
 
 .bottom-right {
@@ -59,6 +59,10 @@ body {
   background-color: orange;
   border: 1px solid white;
   border-radius: 50%;
+}
+
+.ghost {
+  border-radius: unset;
 }
 
 .blinky {
@@ -78,5 +82,10 @@ body {
 
 .clyde {
   background-color: orange;
+  border: none;
+}
+
+.scared-ghost {
+  background-color: lightskyblue;
   border: none;
 }
