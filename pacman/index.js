@@ -1,4 +1,5 @@
-const width = 28;
+const width = 28; //
+// const height = 31;
 const leftExit = 364;
 const rightExit = 391;
 const startPosition = 490;
@@ -16,39 +17,40 @@ let score = 0;
 // 6 - wall-top-right
 // 7 - wall-bottom-left
 // 8 - wall-bottom-right
+// 9 - side-top
+// 10 - side-bottom
+// 11 - side-left
+// 12 - side-right
 
 const layout = [
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 1, 1, 0, 5, 1, 1, 6, 0, 5, 1, 1, 1, 6, 0, 1, 1, 0, 5, 1, 1, 1, 6, 0,
-  5, 1, 1, 6, 0, 1, 1, 3, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,
-  1, 0, 1, 1, 1, 1, 3, 1, 1, 0, 7, 1, 1, 8, 0, 7, 1, 1, 1, 8, 0, 7, 8, 0, 7, 1,
-  1, 1, 8, 0, 7, 1, 1, 8, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 5, 1, 1, 6, 0, 5, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 1, 1, 1, 6, 0, 5, 1, 1, 6, 0, 1, 1, 0, 7, 1, 1, 8, 0, 7, 1, 1, 1, 1,
-  1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 7, 1, 1, 8, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 6, 0, 5,
-  1, 1, 1, 6, 0, 7, 8, 0, 5, 1, 1, 1, 6, 0, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  0, 1, 1, 1, 1, 8, 0, 4, 4, 0, 7, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 0, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 8, 0, 7, 8, 4, 1, 1, 1, 2, 2, 1, 1, 1, 4, 7, 8, 0, 7, 1, 1, 1, 1, 1,
-  4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 0, 0, 0, 4, 4, 4, 4,
-  4, 4, 1, 1, 1, 1, 1, 6, 0, 5, 6, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 5, 6, 0, 5, 1,
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 1, 1, 0,
-  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 7, 8, 4, 1, 1, 1, 1, 1, 1, 1, 1, 4, 7,
-  8, 0, 7, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4,
-  4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 5, 1, 1, 6, 0, 5, 1, 1, 1, 6, 0, 5, 6, 0,
-  5, 1, 1, 1, 6, 0, 5, 1, 1, 6, 0, 1, 1, 0, 7, 1, 1, 1, 0, 7, 1, 1, 1, 8, 0, 7,
-  8, 0, 7, 1, 1, 1, 8, 0, 1, 1, 1, 8, 0, 1, 1, 3, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0,
-  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 3, 1, 1, 1, 6, 0, 1, 1, 0, 5, 6, 0,
-  5, 1, 1, 1, 1, 1, 1, 6, 0, 5, 6, 0, 1, 1, 0, 5, 1, 1, 1, 1, 8, 0, 7, 8, 0, 1,
-  1, 0, 7, 1, 1, 1, 1, 1, 1, 8, 0, 1, 1, 0, 7, 8, 0, 7, 1, 1, 1, 0, 0, 0, 0, 0,
-  0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 5, 1,
-  1, 1, 1, 1, 1, 1, 1, 6, 0, 1, 1, 0, 5, 1, 1, 1, 1, 1, 1, 1, 1, 6, 0, 1, 1, 0,
-  7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 7, 8, 0, 7, 1, 1, 1, 1, 1, 1, 1, 1, 8, 0, 1,
-  1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  1, 1, 1, 1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,5,9,9,6,0,5,1,1,1,6,0,1,1,0,5,1,1,1,6,0,5,1,1,6,0,1,
+  1,3,11,1,1,12,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,3,1,
+  1,0,7,10,10,8,0,7,1,1,1,8,0,7,8,0,7,1,1,1,8,0,7,1,1,8,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+  1,0,5,1,1,6,0,5,1,1,1,1,1,1,1,1,1,1,1,1,6,0,5,1,1,6,0,1,
+  1,0,7,1,1,8,0,7,1,1,1,1,1,1,1,1,1,1,1,1,8,0,7,1,1,8,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
+  1,1,1,1,1,6,0,5,1,1,1,6,0,7,8,0,5,1,1,1,6,0,5,1,1,1,1,1,
+  1,1,1,1,1,1,0,1,1,1,1,8,0,4,4,0,7,1,1,1,1,0,1,1,1,1,1,1,
+  1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
+  1,1,1,1,1,8,0,7,8,4,1,1,1,2,2,1,1,1,4,7,8,0,7,1,1,1,1,1,
+  4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
+  1,1,1,1,1,6,0,5,6,4,1,2,2,2,2,2,2,1,4,5,6,0,5,1,1,1,1,1,
+  1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
+  1,1,1,1,1,8,0,7,8,4,1,1,1,1,1,1,1,1,4,7,8,0,7,1,1,1,1,1,
+  1,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,1,
+  1,0,5,1,1,6,0,5,1,1,1,6,0,5,6,0,5,1,1,1,6,0,5,1,1,6,0,1,
+  1,0,7,1,1,1,0,7,1,1,1,8,0,7,8,0,7,1,1,1,8,0,1,1,1,8,0,1,
+  1,3,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,3,1,
+  1,1,6,0,1,1,0,5,6,0,5,1,1,1,1,1,1,6,0,5,6,0,1,1,0,5,1,1,
+  1,1,8,0,7,8,0,1,1,0,7,1,1,1,1,1,1,8,0,1,1,0,7,8,0,7,1,1,
+  1,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1,
+  1,0,5,1,1,1,1,1,1,1,1,6,0,1,1,0,5,1,1,1,1,1,1,1,1,6,0,1,
+  1,0,7,1,1,1,1,1,1,1,1,8,0,7,8,0,7,1,1,1,1,1,1,1,1,8,0,1,
+  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
+  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 ];
 
 //create board
@@ -71,16 +73,29 @@ function createBoard() {
     } else if (layout[i] === 3) {
       squares[i].classList.add('power-pellet');
     } else if (layout[i] === 5) {
-      squares[i].classList.add('wall');
-      squares[i].classList.add('top-left');
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="corner-div top-left"></div>'
     } else if (layout[i] === 6) {
-      squares[i].classList.add('wall');
-      squares[i].classList.add('top-right');
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="corner-div top-right"></div>'
     } else if (layout[i] === 7) {
-      squares[i].classList.add('wall', 'bottom-left');
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="corner-div bottom-left"></div>'
     } else if (layout[i] === 8) {
-      squares[i].classList.add('wall', 'bottom-right');
-    }
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="corner-div bottom-right"></div>'    
+    } else if (layout[i] === 9) {
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="side-div top-side"></div>'    
+    } else if (layout[i] === 10) {
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="side-div bottom-side"></div>'    
+    } else if (layout[i] === 11) {
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="side-div left-side"></div>'    
+    } else if (layout[i] === 12) {
+      squares[i].classList.add('outer-wall');
+      squares[i].innerHTML = '<div class="side-div right-side"></div>'    }
   }
 }
 createBoard();
@@ -106,6 +121,7 @@ function control(e) {
         pacmanCurrentIndex += width;
       pacDotEaten();
       powerPelletEaten();
+      checkForGameOver()
       break;
     case 'ArrowUp':
       if (
@@ -115,6 +131,7 @@ function control(e) {
         pacmanCurrentIndex -= width;
       pacDotEaten();
       powerPelletEaten();
+      checkForGameOver()
       break;
     case 'ArrowLeft':
       if (pacmanCurrentIndex === leftExit) {
@@ -128,6 +145,7 @@ function control(e) {
         pacmanCurrentIndex -= 1;
       pacDotEaten();
       powerPelletEaten();
+      checkForGameOver()
       break;
     case 'ArrowRight':
       if (pacmanCurrentIndex === rightExit) {
@@ -141,6 +159,7 @@ function control(e) {
         pacmanCurrentIndex += 1;
       pacDotEaten();
       powerPelletEaten();
+      checkForGameOver()
       break;
   }
   squares[pacmanCurrentIndex].classList.add('pacman');
@@ -233,6 +252,7 @@ function moveGhost(ghost) {
       ghost.currentIndex += direction;
       //add ghost class
       squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
+      checkForGameOver()
     } else {
       direction = directions[Math.floor(Math.random() * directions.length)];
     }
@@ -264,5 +284,33 @@ function moveGhost(ghost) {
     //re-add classnames of ghost.className and 'ghost' to the ghosts new postion
     squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
   }, ghost.speed);
-  clearInterval(ghost.timerId);
+  // clearInterval(ghost.timerId);
 }
+
+//check for game over
+function checkForGameOver() {
+  // if the square pacman is in contains a ghost AND
+  // the square does NOT contain a scared ghost
+
+  if (
+    squares[pacmanCurrentIndex].classList.contains('ghost') &&
+    !squares[pacmanCurrentIndex].classList.contains('scared-ghost')
+  ) {
+
+    //for each ghost - we need to stop it moving
+    ghosts.forEach((ghost) => {
+      clearInterval(ghost.timerId);
+    });
+
+    //remove eventlistener from our control function
+    document.removeEventListener('keydown', control);
+
+    //tell user the game is over
+    scoreDisplay.textContent += ' Game Over';
+  }
+
+}
+
+
+
+// Command K, F in mac.

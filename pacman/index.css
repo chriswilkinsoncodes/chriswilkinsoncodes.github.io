@@ -30,23 +30,73 @@ body {
 }
 
 .wall {
+  position: relative;
   background-color: blue;
 }
 
+.outer-wall {
+  position: relative;
+}
+
+.corner-div {
+  background-color: red;
+  max-width: 10px;
+  max-height: 10px;
+  position: absolute;
+}
+
+
 .top-left {
   border-radius: 100% 0 0 0;
+  bottom: 0;
+  right: 0;
 }
+
+/* .top-left {
+  border-radius: 100% 0 0 0;
+} */
 
 .top-right {
   border-radius: 0 100% 0 0;
+  bottom: 0;
+  left: 0;
 }
 
 .bottom-left {
   border-radius: 0 0 0 100%;
+  top: 0;
+  right: 0;
 }
 
 .bottom-right {
   border-radius: 0 0 100% 0;
+  top: 0;
+  left: 0;
+}
+
+.side-div {
+  background-color: red;
+  position: absolute;
+}
+
+.top-side {
+  max-height: 10px;
+  bottom: 0;
+}
+
+.bottom-side {
+  max-height: 10px;
+  top: 0;
+}
+
+.left-side {
+  max-width: 10px;
+  right: 0;
+}
+
+.right-side {
+  max-width: 10px;
+  left: 0;
 }
 
 .power-pellet {
