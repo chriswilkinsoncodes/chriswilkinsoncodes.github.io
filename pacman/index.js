@@ -21,36 +21,42 @@ let score = 0;
 // 10 - side-bottom
 // 11 - side-left
 // 12 - side-right
+// 14 - inner-wall (blank)
+// 15 - inner-top-left
+// 16 - inner-top-right
+// 17 - inner-bottom-left
+// 18 - inner-bottom-right
+
 
 const layout = [
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,0,5,9,9,6,0,5,1,1,1,6,0,1,1,0,5,1,1,1,6,0,5,1,1,6,0,1,
-  1,3,11,1,1,12,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,3,1,
-  1,0,7,10,10,8,0,7,1,1,1,8,0,7,8,0,7,1,1,1,8,0,7,1,1,8,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,0,5,1,1,6,0,5,1,1,1,1,1,1,1,1,1,1,1,1,6,0,5,1,1,6,0,1,
-  1,0,7,1,1,8,0,7,1,1,1,1,1,1,1,1,1,1,1,1,8,0,7,1,1,8,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,1,1,1,1,6,0,5,1,1,1,6,0,7,8,0,5,1,1,1,6,0,5,1,1,1,1,1,
-  1,1,1,1,1,1,0,1,1,1,1,8,0,4,4,0,7,1,1,1,1,0,1,1,1,1,1,1,
-  1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
-  1,1,1,1,1,8,0,7,8,4,1,1,1,2,2,1,1,1,4,7,8,0,7,1,1,1,1,1,
-  4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
-  1,1,1,1,1,6,0,5,6,4,1,2,2,2,2,2,2,1,4,5,6,0,5,1,1,1,1,1,
-  1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-  1,1,1,1,1,8,0,7,8,4,1,1,1,1,1,1,1,1,4,7,8,0,7,1,1,1,1,1,
-  1,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,1,
-  1,0,5,1,1,6,0,5,1,1,1,6,0,5,6,0,5,1,1,1,6,0,5,1,1,6,0,1,
-  1,0,7,1,1,1,0,7,1,1,1,8,0,7,8,0,7,1,1,1,8,0,1,1,1,8,0,1,
-  1,3,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,3,1,
-  1,1,6,0,1,1,0,5,6,0,5,1,1,1,1,1,1,6,0,5,6,0,1,1,0,5,1,1,
-  1,1,8,0,7,8,0,1,1,0,7,1,1,1,1,1,1,8,0,1,1,0,7,8,0,7,1,1,
-  1,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,1,
-  1,0,5,1,1,1,1,1,1,1,1,6,0,1,1,0,5,1,1,1,1,1,1,1,1,6,0,1,
-  1,0,7,1,1,1,1,1,1,1,1,8,0,7,8,0,7,1,1,1,1,1,1,1,1,8,0,1,
-  1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-  1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+ 15,10,10,10,10,10,10,10,10,10,10,10,10,16,15,10,10,10,10,10,10,10,10,10,10,10,10,16,
+ 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,
+ 12, 0, 5, 9, 9, 6, 0, 5, 9, 9, 9, 6, 0,11,12, 0, 5, 9, 9, 9, 6, 0, 5, 9, 9, 6, 0,11,
+ 12, 3,11,14,14,12, 0,11,14,14,14,12, 0,11,12, 0,11,14,14,14,12, 0,11,14,14,12, 3,11,
+ 12, 0, 7,10,10, 8, 0, 7,10,10,10, 8, 0, 7, 8, 0, 7,10,10,10, 8, 0, 7,10,10, 8, 0,11,
+ 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,
+ 12, 0, 5, 9, 9, 6, 0, 5, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 6, 0, 5, 9, 9, 6, 0,11,
+ 12, 0, 7,10,10, 8, 0, 7,10,10,10,10,10,16,15,10,10,10,10,10, 8, 0, 7,10,10, 8, 0,11,
+ 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,
+ 17, 9, 9, 9, 9, 6, 0, 5, 9, 9, 9, 6, 0, 7, 8, 0, 5, 9, 9, 9, 6, 0, 5, 9, 9, 9, 9,18,
+ 14,14,14,14,14,12, 0,11,15,10,10, 8, 0, 4, 4, 0, 7,10,10,16,12, 0,11,14,14,14,14,14,
+ 14,14,14,14,14,12, 0,11,12, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,11,12, 0,11,14,14,14,14,14,
+ 10,10,10,10,10, 8, 0, 7, 8, 4, 1, 1, 1, 2, 2, 1, 1, 1, 4, 7, 8, 0, 7,10,10,10,10,10,
+  4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 0, 0, 0, 4, 4, 4, 4, 4, 4,
+  9, 9, 9, 9, 9, 6, 0, 5, 6, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 5, 6, 0, 5, 9, 9, 9, 9, 9,
+ 14,14,14,14,14,12, 0,11,12, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4,11,12, 0,11,14,14,14,14,14,
+ 15,10,10,10,10, 8, 0, 7, 8, 4, 1, 1, 1, 1, 1, 1, 1, 1, 4, 7, 8, 0, 7,10,10,10,10,16,
+ 12, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0,11,
+ 12, 0, 5, 9, 9, 6, 0, 5, 9, 9, 9, 6, 0, 5, 6, 0, 5, 9, 9, 9, 6, 0, 5, 9, 9, 6, 0,11,
+ 12, 0, 7,10,16,12, 0, 7,10,10,10, 8, 0, 7, 8, 0, 7,10,10,10, 8, 0,11,15,10, 8, 0,11,
+ 12, 3, 0, 0,11,12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,12, 0, 0, 3,11,
+ 17, 9, 6, 0,11,12, 0, 5, 6, 0, 5, 9, 9, 9, 9, 9, 9, 6, 0, 5, 6, 0,11,12, 0, 5, 9,18,
+ 15,10, 8, 0, 7, 8, 0,11,12, 0, 7,10,10,16,15,10,10, 8, 0,11,12, 0, 7, 8, 0, 7,10,16,
+ 12, 0, 0, 0, 0, 0, 0,11,12, 0, 0, 0, 0,11,12, 0, 0, 0, 0,11,12, 0, 0, 0, 0, 0, 0,11, 
+ 12, 0, 5, 9, 9, 9, 9,18,17, 9, 9, 6, 0,11,12, 0, 5, 9, 9,18,17, 9, 9, 9, 9, 6, 0,11,
+ 12, 0, 7,10,10,10,10,10,10,10,10, 8, 0, 7, 8, 0, 7,10,10,10,10,10,10,10,10, 8, 0,11,
+ 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,11,
+ 17, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,18,
 ];
 
 //create board
@@ -67,35 +73,50 @@ function createBoard() {
     if (layout[i] === 0) {
       squares[i].classList.add('pac-dot');
     } else if (layout[i] === 1) {
-      squares[i].classList.add('wall');
+      squares[i].classList.add('wall', 'full-wall');
     } else if (layout[i] === 2) {
       squares[i].classList.add('ghost-lair');
     } else if (layout[i] === 3) {
       squares[i].classList.add('power-pellet');
     } else if (layout[i] === 5) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="corner-div top-left"></div>'
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="corner-div top-left"></div>';
     } else if (layout[i] === 6) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="corner-div top-right"></div>'
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="corner-div top-right"></div>';
     } else if (layout[i] === 7) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="corner-div bottom-left"></div>'
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="corner-div bottom-left"></div>';
     } else if (layout[i] === 8) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="corner-div bottom-right"></div>'    
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="corner-div bottom-right"></div>';
     } else if (layout[i] === 9) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="side-div top-side"></div>'    
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="side-div top-side"></div>';
     } else if (layout[i] === 10) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="side-div bottom-side"></div>'    
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="side-div bottom-side"></div>';
     } else if (layout[i] === 11) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="side-div left-side"></div>'    
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="side-div left-side"></div>';
     } else if (layout[i] === 12) {
-      squares[i].classList.add('outer-wall');
-      squares[i].innerHTML = '<div class="side-div right-side"></div>'    }
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="side-div right-side"></div>';
+    } else if (layout[i] === 14) {
+      squares[i].classList.add('wall');
+    } else if (layout[i] === 15) {
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="inner-corner-div top-left"></div>';
+    } else if (layout[i] === 16) {
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="inner-corner-div top-right"></div>';
+    } else if (layout[i] === 17) {
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="inner-corner-div bottom-left"></div>';
+    } else if (layout[i] === 18) {
+      squares[i].classList.add('wall', 'outer-wall');
+      squares[i].innerHTML = '<div class="inner-corner-div bottom-right"></div>';
+    }
   }
 }
 createBoard();
@@ -311,6 +332,26 @@ function checkForGameOver() {
 
 }
 
+//check for win
+function checkForWin() {
+  if (score >= 274) {
+      //stop each ghost
+      ghosts.forEach((ghost) => {
+        clearInterval(ghost.timerId);
+      });
+      //remove the eventListener for the control function
+      document.removeEventListener('keydown', control);
+
+      //tell our user we have won
+      scoreDisplay.textContent += ' You WIN!';
+
+  }
+}
 
 
+// Prettier style selected code:
 // Command K, F in mac.
+
+
+// gameplay with no walls visible: remove innerHTML from .grid divs
+// toggle solid/no fill walls - use different layout arrays
