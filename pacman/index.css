@@ -39,7 +39,7 @@ body {
 }
 
 .corner-div {
-  background-color: red;
+  /* background-color: red; */
   max-width: 10px;
   max-height: 10px;
   position: absolute;
@@ -48,53 +48,61 @@ body {
 
 .top-left {
   border-radius: 100% 0 0 0;
+  border-left: 1px solid blue;
+  border-top: 1px solid blue;
   bottom: 0;
   right: 0;
 }
 
-/* .top-left {
-  border-radius: 100% 0 0 0;
-} */
-
 .top-right {
   border-radius: 0 100% 0 0;
+  border-right: 1px solid blue;
+  border-top: 1px solid blue;
   bottom: 0;
   left: 0;
 }
 
 .bottom-left {
   border-radius: 0 0 0 100%;
+  border-left: 1px solid blue;
+  border-bottom: 1px solid blue;
   top: 0;
   right: 0;
 }
 
 .bottom-right {
   border-radius: 0 0 100% 0;
+  border-right: 1px solid blue;
+  border-bottom: 1px solid blue;
   top: 0;
   left: 0;
 }
 
 .side-div {
-  background-color: red;
+  /* background-color: red; */
   position: absolute;
 }
 
 .top-side {
+  border-top: 1px solid blue;
   max-height: 10px;
   bottom: 0;
 }
 
 .bottom-side {
+  border-bottom: 1px solid blue;
   max-height: 10px;
   top: 0;
 }
 
 .left-side {
+  border-left: 1px solid blue;
   max-width: 10px;
   right: 0;
 }
 
 .right-side {
+  border-right: 1px solid blue;
   max-width: 10px;
   left: 0;
 }
