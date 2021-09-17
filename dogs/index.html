@@ -1,0 +1,16 @@
+<html>
+  <head> </head>
+  <body>
+    <div class="dog-image"></div>
+    <script>
+      fetch('https://dog.ceo/api/breeds/image/random')
+        .then((response) => response.json())
+        .then(
+          (data) =>
+            (document.querySelector(
+              '.dog-image'
+            ).innerHTML = `<img src=${data.message} alt="" style="max-width:100%;">`)
+        );
+    </script>
+  </body>
+</html>
