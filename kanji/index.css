@@ -13,7 +13,7 @@ body {
     max-width: 640px;
     height: calc(100vh - 50px);
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,11 +23,12 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
+    margin: 1rem 0 0 0 ;
+    font-size: 2.5rem;
 }
 
 p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: .5rem;
 }
 
