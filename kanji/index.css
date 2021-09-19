@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lavender;
+    margin: 25px 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    width: 75%;
+    max-width: 640px;
+    height: calc(100vh - 50px);
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rebeccapurple;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+.kanji {
+    margin-top: 0;
+    margin-bottom: 3rem;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.english {
+    margin-bottom: 4rem;
+    font-size: 2rem;
+    font-weight: 700;}
+
+.btn {
+    background-color: rebeccapurple;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    scale: 1.05;
+}
