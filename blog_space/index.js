@@ -14,7 +14,7 @@ let posts = ``
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(response => response.json())
     .then(data => 
-        data.forEach((obj) => {
+        data.slice(0,5).forEach((obj) => {
           posts += `<li>${obj.title}, ${obj.userId}</li>`
         }))
         
