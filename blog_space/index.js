@@ -15,7 +15,11 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(response => response.json())
     .then(data => 
         data.slice(0,5).forEach((obj) => {
-          posts += `<li>${obj.title}, ${obj.userId}</li>`
+          posts += `<li>${obj.title}
+                      <ul>
+                        <li>${obj.body}</li>
+                      </ul>
+                    </li>`
         }))
         
 setTimeout(function(){(document.getElementById('titles').innerHTML = posts)}, 500)
