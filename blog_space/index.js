@@ -3,6 +3,7 @@
 // URLs, REST, & BlogSpace
 //
 
+const form = document.getElementById("new-post")
 let postsArr = []
 
 function renderPosts() {
@@ -15,6 +16,7 @@ function renderPosts() {
               </li>`;
       document.getElementById('titles').innerHTML = posts;
   });
+
 }
 
 
@@ -26,7 +28,7 @@ fetch('https://apis.scrimba.com/jsonplaceholder/posts')
   });
 
 
-document.getElementById('new-post').addEventListener('submit', function(e) {
+form.addEventListener('submit', function(e) {
   e.preventDefault()
   const postTitle = document.getElementById('post-title').value
   const postBody = document.getElementById('post-body').value
@@ -45,5 +47,6 @@ document.getElementById('new-post').addEventListener('submit', function(e) {
       postsArr.unshift(post)
       postsArr.pop()
       renderPosts()
+      form.reset();
     });
 })
