@@ -18,8 +18,8 @@ label {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    /* flex-direction: column; */
     background-color: rebeccapurple;
     color: white;
     width: 75%;
@@ -55,14 +55,13 @@ form {
   padding-top: 4rem;
 }
 
-.title {
+.post-title {
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
 }
 
-.body {
-  /* background-color: lavender; */
+.post-body {
   font-size: 1rem;
   font-weight: 300;
   width: 90%;
@@ -70,4 +69,16 @@ form {
   list-style-type: none;
   margin-top: 0.25rem;
   /* margin-bottom: 1rem; */
+}
+
+.btn {
+    /* display: inline-block; */
+    background-color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: .75rem;
+    padding: .75rem 2.25rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }

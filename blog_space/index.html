@@ -26,24 +26,18 @@
     </nav>
     <main class="container">
       <h1 class="page-title">The 'Hello World' blog!</h1>
-      <form action="" method="get" class="form-post">
-        <!-- <div class="form-input"> -->
+      <form action="" method="get" id="new-post" class="form-post">
           <label for="title">Title:</label>
-          <input type="text" name="title" id="title" required />
-        <!-- </div> -->
-        <!-- <div class="form-input"> -->
+          <input type="text" name="title" id="post-title" required />
           <label for="body">Post:</label>
           <textarea
-            id="body"
+            id="post-body"
             name="body"
             rows="5"
-            cols="33"
             required
           ></textarea>
-        <!-- </div> -->
-        <!-- <div class="form-submit"> -->
-          <input type="submit" value="Post" />
-        <!-- </div> -->
+
+            <button class="btn btn-post">Post</button>
       </form>
       <ul id="titles"></ul>
       <script src="index.js"></script>
