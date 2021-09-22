@@ -7,6 +7,10 @@ body {
     color:#121212;
 }
 
+.image-container {
+    display: flex;
+}
+
 .btn {
     background-color: #fff;
     margin: 1rem auto;
