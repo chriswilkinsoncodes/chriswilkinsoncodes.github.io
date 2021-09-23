@@ -1,5 +1,6 @@
 
 const imageContainer = document.querySelector('.image-container')
+const cardsRemaining = document.getElementById('cards-remaining')
 
 const numCards = 2
 let deckId
@@ -9,9 +10,10 @@ function handleClick() {
         .then(res => res.json())
         .then(data => {
             deckId = data.deck_id
-            console.log(deckId)
+            // console.log(deckId)
             imageContainer.innerHTML = ""
             document.getElementById("draw").hidden = false;
+            cardsRemaining.innerText = `${data.remaining} cards remaining`
             })
 }
 
@@ -20,9 +22,12 @@ function drawCards() {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                imageContainer.innerHTML = 
-                `<img src="${data.cards[0].image}" alt="card ${data.cards[0].code}">
-                <img src="${data.cards[1].image}" alt="card ${data.cards[1].code}">`
+                imageContainer.innerHTML = ""
+                for (let i = 0; i < numCards; i++) {
+                    imageContainer.innerHTML += 
+                    `<img src="${data.cards[i].image}" alt="card ${data.cards[i].code}">`
+                }
+                cardsRemaining.innerText = `${data.remaining} cards remaining`
             } else {
                 console.log('not enough cards')
             }
