@@ -27,7 +27,6 @@ function drawCards() {
                 console.log('not enough cards')
             }
         })
-        
     }
     
 document.getElementById("draw").hidden = true;

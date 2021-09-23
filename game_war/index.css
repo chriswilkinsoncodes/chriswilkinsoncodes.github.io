@@ -1,22 +1,42 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background: url(images/table.png), green;
-    background-size: cover;
-    margin: 0;
-    color:#121212;
+  background: url(images/table.png), #008000;
+  background-size: cover;
+  margin: 0;
+  color: #121212;
 }
 
 .image-container {
-    display: flex;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
 }
 
 .btn {
-    background-color: #fff;
-    margin: 1rem auto;
-    padding: .75rem 2rem;
-    border: 1px solid;
-    cursor: pointer;
+  background-color: #ffff00;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin: 1rem;
+  padding: 0.75rem 2rem;
+  border: 2px solid rgb(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #ffff99;
+  border: 2px solid;
+}
+
+.btn-draw {
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
 }
