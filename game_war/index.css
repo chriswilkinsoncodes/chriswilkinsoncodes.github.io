@@ -3,6 +3,8 @@
 }
 
 body {
+    background: url(images/table.png), green;
+    background-size: cover;
     margin: 0;
     color:#121212;
 }
