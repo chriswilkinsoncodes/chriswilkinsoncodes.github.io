@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div class="status">
+    <header class="status">
       <button id="new-deck" class="btn btn-shuffle">Shuffle</button>
       <p id="cards-remaining"></p>
-    </div>
-    <div class="image-container"></div>
+    </header>
+    <main id="card-container" class="container">
+      <div class="title"><h1>Game of War</h1></div>
+      <p class="score computer-score">Computer:</p>
+      <div class="image-container">
+        <div id="card-one" class="card-image"></div>
+        <div id="card-two" class="card-image"></div>
+      </div>
+      <p class="score player-score">Player:</p>
+    </main>
     <button id="draw" class="btn btn-draw">Draw</button>
     <script src="index.js"></script>
   </body>

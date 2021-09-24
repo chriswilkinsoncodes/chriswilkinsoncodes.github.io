@@ -3,30 +3,52 @@
 }
 
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url(images/table.png), #008000;
   background-size: cover;
   margin: 0;
-  color: #121212;
+  color: #fff;
+  height: 100vh;
 }
 
+h1 {
+  margin: 0;
+}
 p {
-    /* display: inline-block; */
-    font-size: 2rem;
-    color: #fff;
-    margin: 0;
+  /* display: inline-block; */
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+img {
+  width: 100%;
 }
 
 .status {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
 }
 
-.image-container {
+.container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 2rem;
+  align-items: center;
+  box-sizing: content-box;
+  max-height: 90%;
+  margin: 1rem auto;
   gap: 1rem;
+}
+
+.card-image {
+  height: 224px;
+  width: 162px;
+  border: 2px solid #121212;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .btn {
