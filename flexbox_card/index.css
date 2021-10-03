@@ -56,16 +56,16 @@ h1 {
 }
 
 .read-text {
-    width: 50px;
     opacity: .51;
     display: flex;
     flex-direction: column;
     flex-shrink: 2;
     justify-self: flex-end;
+    flex-basis: min-content;
     margin: 0;
 }
 
-span {
+.highlight {
     font-size: 1.75rem;
     font-weight: 700;
 }
@@ -96,7 +96,7 @@ button {
 }
 
 
-@media (min-width: 800px) {
+@media (min-width: 850px) {
     .card-container {
         flex-direction: row;
         height: 390px;
