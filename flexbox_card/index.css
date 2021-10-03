@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Blinker', sans-serif;
+    margin: 0;
+    padding: 2rem;
+}
+
+header {
+    flex-basis: 40%;
+    background-image: url(images/tech.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+img {
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #05cbe9;
+    margin-top: 0;
+}
+
+.card-container {
+  background-color: #111d4a;
+  color: #fff;
+  height: 600px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.body-text {
+    font-family: 'PT Sans', sans-serif;
+    opacity: 0.8;
+    line-height: 1.7;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-end;
+  align-self: flex-end;
+  margin: 0;
+}
+
+.read-text {
+    opacity: .51;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+span {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button:hover,
+button:focus {
+  background-color: #111d4a;
+  color: #05cbe9;
+  border: 1px solid;
+}
+
+button {
+  display: inline-block;
+  background-color: #05cbe9;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+
+@media (min-width: 800px) {
+    .card-container {
+        flex-direction: row;
+        height: 390px;
+        width: 770px;
+    }
+}
