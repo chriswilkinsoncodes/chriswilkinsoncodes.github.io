@@ -2,17 +2,26 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
+  }
+  
+  body {
     background-color: #121212;
+    height: 100vh;
+    position: relative;
 }
 
 .grid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+    /* margin: auto; */
     display: grid;
-    width: 100vw;
-    height: 100vh;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    width: 750px;
+    height: 750px;
+    grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+    /* justify-content: center;
+    align-content: center; */
   }
   
   .grid-item {
