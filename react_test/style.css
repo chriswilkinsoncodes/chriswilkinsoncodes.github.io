@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: lavender;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
