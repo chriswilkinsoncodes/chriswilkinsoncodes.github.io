@@ -33,6 +33,6 @@ const cardsData = [
         ratings: 7,
         country: "France",
         price: 25,
-        activity: "Swimming with Katie"
+        activity: "Swimming with Katie Zaferes"
     }
 ]
