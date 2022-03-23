@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  margin: 0;
+  background-color: blanchedalmond;
+}
+
+.container {
+  max-width: 550px;
+  margin: 10px auto;
+  background-color: #fff;
+}
+
+nav {
+  background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+  color: #fff;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.nav--logo {
+  width: 30px;
+}
+
+.nav--title {
+  font-size: 21px;
+  margin-right: auto;
+}
+
+.nav--subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
