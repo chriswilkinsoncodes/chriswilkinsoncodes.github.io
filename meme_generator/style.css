@@ -8,30 +8,38 @@ body {
   background-color: blanchedalmond;
 }
 
+h1, h2 {
+  margin: 0;
+}
+
 .container {
   max-width: 550px;
   margin: 10px auto;
   background-color: #fff;
 }
 
-nav {
+header {
   background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
   color: #fff;
-  padding: 1em;
   display: flex;
   align-items: center;
 }
 
-.nav--logo {
-  width: 30px;
+.header--logo {
+  width: 31.31px;
+  margin: 19px 10px 20px 20px;
 }
 
-.nav--title {
-  font-size: 21px;
+.header--title {
+  font-size: 1.25rem;
+  font-weight: 700;
   margin-right: auto;
+  letter-spacing: -0.1em;
 }
 
-.nav--subtitle {
+.header--subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: .75rem;
+  font-weight: 500;
+  margin-right: 37px;
 }
