@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <small>&copy; 2022 web dogs web development</small>
+            <small>&copy; 2024 web dogs web development</small>
         </footer>
     )
 }
