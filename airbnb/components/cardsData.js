@@ -5,7 +5,7 @@ const cardsData = [
         rating: "5.0",
         ratings: 6,
         country: "USA",
-        price: 136,
+        price: 149,
         activity: "Life lessons with Katie Zaferes"
     },
     {
