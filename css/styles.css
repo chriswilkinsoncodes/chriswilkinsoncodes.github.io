@@ -5,3 +5,7 @@
 body {
   background-color: aliceblue;
 }
+
+nav a {
+  display: block;
+}
